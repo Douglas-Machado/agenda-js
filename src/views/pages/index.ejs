@@ -2,28 +2,46 @@
   <!-- body start below -->
   <%- include('../partials/nav'); %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-ls-2"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-ls-2"></div>
 
-    <div class="col-ls-8 my-4">
-      <h1 class="text-center">Agenda</h1>
-      <p class="text-center">Seus contatos estão abaixo</p>
+      <div class="col-ls-8 my-4">
 
-      <%= include('../partials/messages'); %>
+        <% if (user) { %>
+        <h1 class="text-center">Agenda</h1>
+        <p class="text-center">Seus contatos estão abaixo</p>
 
-      <div class="responsive-table">
-        <table class="table my-3">
-          <tr>
-            <td>Douglas</td>
-            <td>Machado</td>
-            <td>+55(41)99980-9735</td>
-            <td>douglas@gmail.com</td>
-          </tr>
-        </table>
+        <%- include('../partials/messages'); %>
+
+        <% if(contacts.length > 0) { %>
+        <div class="responsive-table">
+          <table class="table my-3">
+            <% contacts.forEach((contact) => { %>
+            <tr>
+              <td><%= contact.name%></td>
+              <td><%= contact.surname%></td>
+              <td><%= contact.email%></td>
+              <td><%= contact.phone%></td>
+              <td><a class="nav-link" href="/contact/index/<%= contact._id %>">Editar</a></td>
+              <td><a class="text-danger nav-link" href="/contact/delete/<%= contact._id %>">Excluir</a></td>
+            </tr>
+            <% }); %>
+          </table>
+        </div>
+        <% } else { %>
+          <p class="text-center lead">Você não tem contatos na sua agenda</p>
+        <% } %>
+
+        <% } else { %>
+        <h1 class="text-center">Bem-Vindo a sua agenda</h1>
+        <p class="text-center">Faça login para ver os contatos</p>
+        <%- include('../partials/messages'); %>
+        <% } %>
+
+
       </div>
     </div>
   </div>
-</div>
 
-<%- include('../partials/footer'); %>
+  <%- include('../partials/footer'); %>
