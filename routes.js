@@ -9,5 +9,7 @@ route.get('/', homeController.index) //dizendo que o index da página ou '/' é 
 //rota de login
 route.get('/login', loginController.index)
 route.post('/login/register', loginController.register);
+route.post('/login/signIn', loginController.signIn);
+route.get('/login/logOut', loginController.logOut);
 
 module.exports = route //exportando a rota para ser usada no server.js 
