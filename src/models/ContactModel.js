@@ -27,7 +27,7 @@ Contact.prototype.register = async function() {
 Contact.prototype.validate = function() {
   this.cleanUp();
 
-  if(!this.body.name || this.body.name.length < 2) this.errors.push('Nome é um campo obrigatório')
+  if(!this.body.name || this.body.name.length <= 2) this.errors.push('Nome é um campo obrigatório e deve conter mais de duas letras')
 
   //validação do email
   if(this.body.email && !validator.isEmail(this.body.email)) { //pacote validator verificando se o email é realmente um email
