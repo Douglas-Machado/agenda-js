@@ -1,4 +1,11 @@
-exports.index = (req, res) => { //rota  sendo exportada
-  res.render('index'); //não é necessário informar a extensão do arquivo pois o view engine ja foi declarado como ejs
-  return;
+const Contact = require('../models/ContactModel')
+exports.index = async(req, res) => {
+  try{
+    const contacts = await Contact.contactSearch()
+    res.render('index', { contacts })
+
+  }catch(e){
+    console.log(e)
+    res.render('error')
+  }
 }
