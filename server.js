@@ -1,4 +1,4 @@
-require('dotenv').config() //importando o arquivo .dotenv
+require('dotenv').config() //importando o arquivo .env
 const path = require('path'); //path utilizado para trabalhar com diretórios, é padrão do node
 
 const routes = require('./routes') //importando as rotas do arquivo routes
