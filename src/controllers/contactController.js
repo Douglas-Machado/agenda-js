@@ -1,4 +1,3 @@
-const { response } = require('express');
 const { redirect } = require('express/lib/response');
 const Contact = require('../models/ContactModel')
 

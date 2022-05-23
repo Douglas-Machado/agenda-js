@@ -65,7 +65,7 @@ app.use(csrfMiddleware)//utilizando middlewares em todas as rotas
 app.use(routes) //utilizando as rotas
 
 app.on('ready', () => { //capturando o sinal enviado pelo app.emit() e iniciando a plicação
-  app.listen(8080, () => { //dizendo para o express 'ouvir' na porta 8080
-    console.log('Access: http://localhost:8080')
+  app.listen(3000, () => { //dizendo para o express 'ouvir' na porta 3000
+    console.log('Access: http://localhost:3000')
   })  
 })
